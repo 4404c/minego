@@ -1,0 +1,110 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pico Mina · Juego gratis de picos y bloques</title>
+<meta name="description" content="Soltá picos, rompé bloques y bajá cada vez más hondo. Juego incremental gratis en el navegador, sin anuncios ni descargas.">
+<meta name="theme-color" content="#15131d">
+<meta property="og:title" content="Pico Mina"><meta property="og:description" content="Soltá picos, rompé bloques y bajá cada vez más hondo. Gratis, sin anuncios.">
+<meta property="og:image" content="./guide/play.webp"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
+  <script type="module" crossorigin src="./assets/index-DIPsNQTQ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Ckn07AzT.css">
+</head><body>
+<header id="bar">
+ <a class="logo" href="#jugar">⛏️ PICO MINA</a>
+ <nav><a href="#como" data-en="How to play">Cómo se juega</a><a href="#ranking">Ranking</a><a href="#mundo" data-en="World">Mundo</a><a href="#modos" data-en="Modes">Modos</a><a href="#progreso" data-en="Progress">Progreso</a><a href="#novedades" data-en="News">Novedades</a></nav>
+ <button id="lang" class="chip" aria-label="English" data-en-aria="Español">EN</button>
+</header>
+
+<main>
+<section id="jugar" class="hero">
+ <div class="pitch">
+  <h1>PICO<br>MINA</h1>
+  <p class="lead" data-en="Drop pickaxes. Smash blocks. Dig deeper every run.">Soltá picos. Rompé bloques. Bajá cada vez más hondo.</p>
+  <p data-en="Buy and merge pickaxes, watch them fall and break everything, beat a boss every 100 m and climb the weekly ranking.">Comprá y fusioná picos, miralos caer y romper todo, vencé a un jefe cada 100 m y subí en el ranking de la semana.</p>
+  <div class="cta"><a class="btn big" href="https://4404c.github.io/" data-en="Play free!">¡Jugar gratis!</a><a class="btn ghost" href="#ranking" data-en="See ranking">Ver ranking</a></div>
+  <ul class="badges"><li data-en="🆓 Free">🆓 Gratis</li><li data-en="🚫 No ads">🚫 Sin anuncios</li><li data-en="🌐 No download">🌐 Sin descargas</li><li data-en="📱 Phone and PC">📱 Celular y PC</li></ul>
+ </div>
+ <div class="phone"><canvas id="demo" width="360" height="640" aria-label="Partida de ejemplo: picos cayendo y rompiendo bloques" data-en-aria="Sample run: pickaxes falling and breaking blocks"></canvas></div>
+</section>
+
+<section id="como">
+ <h2 data-en="How to play">Cómo se juega</h2>
+ <ol class="steps">
+  <li><img src="./guide/shop.webp" alt="" loading="lazy" width="600" height="600"><h3 data-en="1. Buy and merge">1. Comprá y fusioná</h3><p data-en="Buy pickaxes and merge two of the same level to level up. Upgrade health, damage and how many you drop.">Comprá picos y juntá dos del mismo nivel para subirlo. Mejorá vida, daño y cuántos soltás.</p></li>
+  <li><img src="./guide/play.webp" alt="" loading="lazy" width="600" height="600"><h3 data-en="2. Drop them">2. Soltalos</h3><p data-en="Pickaxes fall on their own and bounce off the blocks. Hold down to go x2.">Los picos caen solos y rebotan contra los bloques. Mantené apretado para ir a x2.</p></li>
+  <li><img src="./guide/blocks.webp" alt="" loading="lazy" width="600" height="600"><h3 data-en="3. Mine ores">3. Juntá minerales</h3><p data-en="Ores pay money, TNT blows everything up, the green arrow pushes the pickaxe down and chests bring surprises.">Los minerales dan plata, la TNT vuela todo, la flecha verde empuja el pico hacia abajo y los cofres traen sorpresas.</p></li>
+  <li><img src="./guide/boss.webp" alt="" loading="lazy" width="600" height="600"><h3 data-en="4. Beat the bosses">4. Vencé a los jefes</h3><p data-en="A boss guards every 100 m. Beat it to start from there next time, and from 200 m you can reset for Gems.">Cada 100 m un jefe custodia el paso. Vencelo para arrancar desde ahí, y desde los 200 m reiniciá por Gemas.</p></li>
+ </ol>
+</section>
+
+<section id="ranking">
+ <h2 data-en="Weekly ranking">Ranking de la semana</h2>
+ <p class="sub"><span data-en="Closes in">Cierra en</span> <b id="countdown">—</b>. <span data-en="The top 10 of each board win cubes 🧊 for skins and auras.">Los 10 mejores de cada tabla ganan cubos 🧊 para skins y auras.</span></p>
+ <div class="tabs" role="tablist">
+  <button data-board="money" class="on" data-en="💰 Best run">💰 Mejor partida</button><button data-board="depth" data-en="📏 Depth">📏 Profundidad</button>
+  <span class="sep"></span>
+  <button data-period="week" class="on" data-en="Week">Semana</button><button data-period="all" data-en="All time">Histórico</button>
+ </div>
+ <div id="board"><p class="muted" data-en="Loading…">Cargando…</p></div>
+ <div class="prizes"><h3 data-en="Weekly prizes (per board)">Premios semanales (por tabla)</h3><ul id="prizes"></ul></div>
+</section>
+
+<section id="mundo">
+ <h2 data-en="Nine biomes, nine bosses">Nueve biomas, nueve jefes</h2>
+ <p class="sub" data-en="Every 100 m the world changes: new blocks, new ores and a boss guarding the way in. After 800 m comes the endless zone, which pays double.">Cada 100 m cambia el mundo: bloques nuevos, minerales nuevos y un jefe que custodia la entrada. Después de los 800 m llega la zona infinita, que paga el doble.</p>
+ <div id="biomes" class="strata"></div>
+ <h2 data-en="Ten pickaxe levels">Diez niveles de pico</h2>
+ <p class="sub" data-en="Merge two equal pickaxes to get the next one. Heavier ones hit harder and fall faster.">Fusioná dos iguales para tener el siguiente. Los más pesados pegan más fuerte y caen más rápido.</p>
+ <div id="tiers" class="tiers"></div>
+</section>
+
+<section id="modos">
+ <h2 data-en="Ways to play">Modos de juego</h2>
+ <div class="grid modes">
+  <article><img src="./guide/play.webp" alt="" loading="lazy" width="600" height="600"><h3 data-en="⛏️ Solo">⛏️ Solo</h3><p data-en="Your mine, your pace. Every run adds money, records and progress toward the next boss. Your pickaxes are never lost.">Tu mina, a tu ritmo. Cada partida suma plata, récords y avance hacia el próximo jefe. Los picos nunca se pierden.</p></article>
+  <article><img src="./guide/raid.webp" alt="" loading="lazy" width="600" height="600"><h3 data-en="⚔️ Raid">⚔️ Raid</h3><p data-en="2 to 4 players share one mine and have 1 minute to take down a boss. Join with a code, a link or the public list. Alone? A ghost with your pickaxes comes along.">De 2 a 4 jugadores comparten una mina y tienen 1 minuto para bajar a un jefe. Se entra con código, link o desde la lista pública. ¿Solo? Te acompaña un fantasma con tus picos.</p></article>
+  <article class="soon"><div class="soonart">❔</div><h3 data-en="✨ More coming soon">✨ Más próximamente</h3><p data-en="New ways to play are on the way. When there is one to try, you will see it here first.">Hay más modos en camino. Cuando haya uno para probar, lo vas a ver acá primero.</p></article>
+ </div>
+</section>
+
+<section id="progreso">
+ <h2 data-en="Always something to do">Siempre hay algo para hacer</h2>
+ <p class="sub" data-en="Beyond each run, the game keeps you moving forward and gives you reasons to come back.">Más allá de cada partida, el juego te hace avanzar y te da motivos para volver.</p>
+ <div class="grid modes prog">
+  <article><div class="art">💎</div><h3 data-en="Gems and prestige">Gemas y prestigio</h3><p data-en="Beat the 200 m boss and reset for Gems: permanent upgrades to value, health, damage, capacity and luck. You also earn them with missions, achievements, the daily streak and Raids.">Vencé al jefe de 200 m y reiniciá por Gemas: mejoras permanentes de valor, vida, daño, capacidad y suerte. También se ganan con misiones, logros, la racha diaria y el Raid.</p></article>
+  <article><div class="art">🧊</div><h3 data-en="Cubes and chests">Cubos y cofres</h3><p data-en="Cubes float in the mine: pick them up with your pickaxes, up to 20 a day. They buy skins and auras in the Shop, or 5 open a roulette chest with an exclusive. Duplicates give back 2 🧊.">En la mina flotan cubos: juntalos con tus picos, hasta 20 por día. Compran skins y auras en la Tienda, o con 5 abrís un cofre ruleta con una exclusiva. Los repetidos devuelven 2 🧊.</p>
+   <ul class="odds"><li class="c"><b data-en="Common">Común</b> 60%</li><li class="r"><b data-en="Rare">Rara</b> 28%</li><li class="e"><b data-en="Epic">Épica</b> 10%</li><li class="l"><b data-en="Legendary">Legendaria</b> 2%</li></ul></article>
+  <article><div class="art">🎯</div><h3 data-en="Goals every day">Metas de cada día</h3><p data-en="Three daily missions, a daily streak that never resets you to zero, dozens of achievements and earnings while you are away.">Tres misiones diarias, una racha que nunca te vuelve a cero, decenas de logros y ganancias mientras no jugás.</p></article>
+  <article><div class="art">🔁</div><h3 data-en="Autoplay">Autojugar</h3><p data-en="Let runs chain on their own for 10% of what the last one earned. Stop whenever you want.">Dejá que las partidas sigan solas por el 10% de lo que ganó la anterior. Lo frenás cuando quieras.</p></article>
+ </div>
+</section>
+
+<section id="beta" class="beta">
+ <span class="tag" data-en="TESTING">PRUEBAS</span>
+ <h2 data-en="No beta right now">Por ahora no hay ninguna beta</h2>
+ <p data-en="When we are testing something new, you will be able to open the test version of the game from here. It keeps its own save, so it never touches your progress.">Cuando estemos probando algo nuevo, desde acá vas a poder entrar a la versión de prueba del juego. Guarda aparte, así que nunca toca tu progreso.</p>
+</section>
+
+<section id="novedades">
+ <h2 data-en="News">Novedades</h2>
+ <ul id="news" class="news"></ul>
+</section>
+
+<section id="faq">
+ <h2 data-en="Questions">Preguntas</h2>
+ <details><summary data-en="Is it free?">¿Es gratis?</summary><p data-en="Yes. No ads, no purchases with money. Everything is earned by playing.">Sí. Sin anuncios ni compras con dinero. Todo se gana jugando.</p></details>
+ <details><summary data-en="Can I pay to win?">¿Se puede pagar para ganar?</summary><p data-en="No. Skins and auras are cosmetic and the ranking recomputes every record on the server.">No. Las skins y auras son cosméticas y el servidor recalcula cada récord del ranking.</p></details>
+ <details><summary data-en="Where is my progress saved?">¿Dónde se guarda mi progreso?</summary><p data-en="In your browser, on your device. There are no accounts: if you clear the site data or switch devices you start over.">En tu navegador, en tu dispositivo. No hay cuentas: si borrás los datos del sitio o cambiás de equipo, empezás de nuevo.</p></details>
+ <details><summary data-en="Does it work on my phone?">¿Anda en el celular?</summary><p data-en="Yes, it is made for vertical touch screens. It also plays on PC with the mouse.">Sí, está pensado para pantallas verticales táctiles. En la PC se juega con el mouse.</p></details>
+ <details><summary data-en="What data do you keep?">¿Qué datos guardan?</summary><p data-en="Only an anonymous ID, your nickname and your best runs, for the ranking. Details in the privacy page.">Solo un ID anónimo, tu apodo y tus mejores partidas, para el ranking. Más detalle en la página de privacidad.</p></details>
+</section>
+
+<section class="final">
+ <h2 data-en="Ready to dig?">¿Listo para picar?</h2>
+ <a class="btn big" href="https://4404c.github.io/" data-en="Play free!">¡Jugar gratis!</a>
+</section>
+</main>
+
+<footer>
+ <p>Pico Mina · <a href="https://4404c.github.io/privacidad.html" data-en="Privacy">Privacidad</a> · <span data-en="Font: Pixelify Sans (OFL)">Fuente: Pixelify Sans (OFL)</span></p>
+</footer>
+</body></html>
