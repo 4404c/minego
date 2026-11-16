@@ -1,6 +1,7 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Privacidad · Pickfall</title>
 <style>body{max-width:680px;margin:0 auto;padding:20px 16px;font:16px/1.55 system-ui,sans-serif;background:#10131c;color:#eee}a{color:#7fd}h1{font-size:26px}h2{font-size:18px;margin-top:24px}</style></head><body>
 <!-- BORRADOR: revisar con un profesional antes del lanzamiento. -->
+<div lang="es">
 <h1>Privacidad</h1>
 <p>Responsable: <a href="https://github.com/4404c">github.com/4404c</a>. Contacto: <a href="mailto:expp.bel@gmail.com">expp.bel@gmail.com</a>.</p>
 <h2>Qué se guarda en tu dispositivo</h2>
@@ -13,5 +14,23 @@
 <h2>Direcciones IP</h2>
 <p>El servidor usa tu dirección IP de forma temporal para limitar abusos y no la guarda en la base de datos del juego. La página se aloja en GitHub Pages, que también puede registrar tu dirección IP por seguridad.</p>
 <h2>Borrar tus datos</h2>
-<p>Escribinos al contacto de arriba para pedir que borremos tu apodo y tus puntajes.</p>
+<p>Escribinos al contacto de arriba para pedir que borremos tu apodo, y tus puntajes.</p>
+</div>
+<div lang="en">
+<h1>Privacy</h1>
+<p>Responsible: <a href="https://github.com/4404c">github.com/4404c</a>. Contact: <a href="mailto:expp.bel@gmail.com">expp.bel@gmail.com</a>.</p>
+<h2>What is stored on your device</h2>
+<p>Your progress and a random anonymous identifier, in the browser's storage.</p>
+<h2>What is stored on the server</h2>
+<ul><li>A code derived from that identifier (hash) and your nickname.</li><li>Your best scores and the data of those runs, to validate the ranking.</li><li>The days you played, for 90 days, and usage totals: sessions and runs.</li></ul>
+<p>We don't ask for your name, email or password. Avoid using your real name as a nickname: it is visible to all players.</p>
+<h2>What for</h2>
+<p>To show the ranking, prevent cheating and know whether the game works. We don't sell this data.</p>
+<h2>IP addresses</h2>
+<p>The server uses your IP address temporarily to limit abuse and doesn't store it in the game's database. The page is hosted on GitHub Pages, which may also log your IP address for security.</p>
+<h2>Deleting your data</h2>
+<p>Write to the contact above to ask us to delete your nickname, and your scores.</p>
+</div>
+<!-- Muestra el idioma elegido en el juego (o el del navegador). Sin JavaScript se ven los dos. -->
+<script>(function(){var l;try{l=localStorage.getItem("picomina_lang")}catch(e){}if(l!="es"&&l!="en")l=/^es/i.test(navigator.language||"es")?"es":"en";document.documentElement.lang=l;document.title=(l=="en"?"Privacy":"Privacidad")+" · Pickfall";document.querySelector('div[lang="'+(l=="en"?"es":"en")+'"]').hidden=true})()</script>
 </body></html>
